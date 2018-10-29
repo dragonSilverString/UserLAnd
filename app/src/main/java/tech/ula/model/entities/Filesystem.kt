@@ -19,7 +19,7 @@ data class Filesystem(
     var defaultVncPassword: String = "",
     val isAppsFilesystem: Boolean = false,
     val location: String = "",
-    val dateCreated: String = Date().toString(),
+    val dateCreated: String = Date().toString(), // rebase on DB branch
     val realRoot: Boolean = false,
     var isDownloaded: Boolean = false
 ) : Parcelable

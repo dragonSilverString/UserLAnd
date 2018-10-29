@@ -12,6 +12,8 @@ import tech.ula.R
 import tech.ula.model.entities.App
 import tech.ula.utils.AppsPreferences
 import tech.ula.utils.LocalFileLocator
+import tech.ula.utils.SshTypePreference
+import tech.ula.utils.VncTypePreference
 
 class AppDetailsFragment : Fragment() {
 
@@ -44,7 +46,7 @@ class AppDetailsFragment : Fragment() {
 
     fun setupPreferredServiceTypeRadioGroup() {
         val appServiceTypePreference = appsPreferences.getAppServiceTypePreference(app.name)
-        if (appServiceTypePreference == AppsPreferences.SSH) {
+        if (appServiceTypePreference == SshTypePreference) {
             apps_service_type_preferences.check(R.id.apps_ssh_preference)
         } else {
             apps_service_type_preferences.check(R.id.apps_vnc_preference)
@@ -52,8 +54,8 @@ class AppDetailsFragment : Fragment() {
 
         apps_service_type_preferences.setOnCheckedChangeListener { _, checkedId ->
             val selectedServiceType = when (R.id.apps_ssh_preference) {
-                checkedId -> AppsPreferences.SSH
-                else -> AppsPreferences.VNC
+                checkedId -> SshTypePreference
+                else -> VncTypePreference
             }
 
             appsPreferences.setAppServiceTypePreference(app.name, selectedServiceType)
