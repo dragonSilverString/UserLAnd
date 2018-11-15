@@ -180,11 +180,14 @@ class AppListFragment : Fragment(),
 
     private fun doAppItemClicked(selectedApp: App) {
         lastSelectedApp = selectedApp
-        if (arePermissionsGranted(activityContext)) {
-            handleAppSelection(lastSelectedApp)
-        } else {
-            showPermissionsNecessaryDialog()
-        }
+
+//        val termIntent = Intent(this, jackpal.androidterm.RunScript::class.java)
+//        val termIntent = Intent(this, jackpal.androidterm.RunScript::class.java)
+//        if (arePermissionsGranted(activityContext)) {
+//            handleAppSelection(lastSelectedApp)
+//        } else {
+//            showPermissionsNecessaryDialog()
+//        }
     }
 
     private fun handleAppSelection(selectedApp: App) {
