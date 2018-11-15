@@ -10,7 +10,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "tech.ula"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 28
         versionCode 31
         versionName "1.0.0"
@@ -58,6 +58,9 @@ configurations {
 
 dependencies {
     ktlint "com.github.shyiko:ktlint:0.29.0"
+    implementation project(':terminal-emulator')
+    implementation project(':terminal-view')
+    implementation project(':terminal-term')
 }
 
 task ktlint(type: JavaExec, group: "verification") {
